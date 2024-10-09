@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mysqlddb:
+    image: mysql
+    volumes:
+      - mysqldb_data:/var/lib/mysql  # Persistencia de datos  
+    ports:  
+      - "3306:3306"
+
+  app:
+    build: .
+    depends_on:
+      - mysqlddb
+    volumes:
+      - .:/usr/src/app  
+    ports:
+      - "3000:3000"
+
+volumes:
+  mysqldb_data:  # Definición del volumen
