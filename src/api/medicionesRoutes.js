@@ -1,4 +1,4 @@
-// routes/medicionesRoutes.js
+// ./api/medicionesRoutes.js
 
 import express from 'express';
 import { agregarMedicion, obtenerUltimaMedicion, actualizarMedicion, eliminarMedicion } from './medicionesService.js';

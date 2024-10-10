@@ -24,6 +24,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 // Usar las rutas definidas en medicionesRoutes
+app.use('/', medicionesRoutes);
 app.use('/api', medicionesRoutes);
 
 app.get('/',(req,res)=>{
