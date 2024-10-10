@@ -1,17 +1,26 @@
 // services/medicionesService.js
 
+// services/medicionesService.js
+
 import { pool } from './db.js'; // Conexión a la base de datos
 
 // Función para agregar una medición
 export async function agregarMedicion({ fecha_medicion, Lugar, Valor }) {
     try {
+        // Usar la fecha actual si no se proporciona
+        const fechaActual = new Date(); // Obtenemos la fecha actual
+        const fechaFormateada = fechaActual.toISOString().slice(0, 19).replace('T', ' '); // Formato YYYY-MM-DD HH:mm:ss
+
+        // Insertar la medición en la base de datos
         await pool.query('INSERT INTO pcv00 (fecha_medicion, direccion, medicion) VALUES (?, ?, ?)', 
-                         [fecha_medicion, Lugar, Valor]);
+                         [fechaFormateada, Lugar, Valor]);
+
         return { success: true, message: 'Medición agregada correctamente' };
     } catch (error) {
         throw new Error('Error al agregar la medición: ' + error.message);
     }
 }
+
 
 // Función para obtener la última medición
 export async function obtenerUltimaMedicion() {
