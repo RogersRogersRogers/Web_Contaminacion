@@ -3,7 +3,7 @@
 // Función para obtener las mediciones de la API
 async function fetchMediciones() {
     try {
-        const response = await fetch('/mediciones');
+        const response = await fetch('/api/mediciones');
         if (!response.ok) {
             throw new Error('Error al obtener la última medición');
         }
