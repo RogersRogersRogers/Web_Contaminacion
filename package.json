@@ -4,17 +4,23 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start":"node src/index.js"
+    "start": "node src/index.js",
+    "test": "dotenv -e .env.test mocha"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "expess": "^0.0.1-security",
-    "cors": "^2.8.5", 
     "express": "^4.21.0",
     "mysql2": "^3.11.3"
+  },
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "dotenv-cli": "^7.4.2",
+    "mocha": "^10.7.3"
   }
 }
